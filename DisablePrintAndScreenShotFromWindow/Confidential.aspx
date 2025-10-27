@@ -7,6 +7,13 @@
     <title></title>
     <script>
 window.onload = function () {
+
+    // Disable right-click
+    document.addEventListener('contextmenu', function (e) {
+        e.preventDefault();
+      });
+
+
     window.addEventListener('keydown', function (e) {
         if (e.metaKey || e.keyCode === 91 || (e.shiftKey && e.key.toLowerCase() === 's')) {
             e.preventDefault();
