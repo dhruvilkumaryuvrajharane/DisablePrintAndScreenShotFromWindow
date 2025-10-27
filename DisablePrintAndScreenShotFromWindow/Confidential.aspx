@@ -43,7 +43,22 @@ window.addEventListener('blur', function () {
 window.addEventListener('focus', function () {
     document.body.style.filter = 'none';
 });
+
+document.addEventListener("visibilitychange", function() {
+  if (document.hidden) {
+    document.body.classList.add("blurred");
+  } else {
+    document.body.classList.remove("blurred");
+  }
+
     </script>
+    <style>
+.blurred {
+  filter: blur(20px);
+  transition: filter 0.3s ease;
+}
+</style>
+
 </head>
 <body>
     <form id="form1" runat="server">
