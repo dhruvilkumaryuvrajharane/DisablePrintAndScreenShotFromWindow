@@ -37,6 +37,12 @@ window.onload = function () {
                 }
     });
 };
+window.addEventListener('blur', function () {
+    document.body.style.filter = 'blur(10px)';
+});
+window.addEventListener('focus', function () {
+    document.body.style.filter = 'none';
+});
     </script>
 </head>
 <body>
