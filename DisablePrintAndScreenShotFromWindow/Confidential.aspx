@@ -12,13 +12,29 @@ window.onload = function () {
     document.addEventListener('contextmenu', function (e) {
         e.preventDefault();
       });
+    
 
 
     window.addEventListener('keydown', function (e) {
-        if (e.metaKey || e.keyCode === 91 || (e.shiftKey && e.key.toLowerCase() === 's')) {
-            e.preventDefault();
-            window.location.href = '/Contact.aspx';
-        }
+            if (e.metaKey || e.keyCode === 91 || (e.shiftKey && e.key.toLowerCase() === 's')) {
+                e.preventDefault();
+                window.location.href = '/Contact.aspx';
+            }
+            // Check for Ctrl+P or Cmd+P
+            else if ((e.ctrlKey && e.key.toLowerCase() === 'p') || (e.metaKey && e.key.toLowerCase() === 'p')) {
+                e.preventDefault();
+                alert("Printing using Ctrl + P is disabled on this page!");
+                return false;
+            }// Disable F1–F12, Ctrl, Shift, Alt, PrintScreen, etc.
+              else  if (
+                    e.key.startsWith("F") ||              // F1–F12
+                    e.keyCode === 44 ||                   // PrintScreen
+                    e.ctrlKey || e.shiftKey || e.altKey || e.metaKey
+                ) {
+                    e.preventDefault();
+                    alert("Keyboard shortcuts are disabled on this page!");
+                    return false;
+                }
     });
 };
     </script>
